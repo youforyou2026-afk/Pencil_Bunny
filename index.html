@@ -9,7 +9,7 @@
       flex-direction: column; /* 세로 방향으로 배치 */
       justify-content: center;
       align-items: center;
-      height: 70vh;
+      height: 85vh;
       margin: 0;
       background-color: #f0f0f0;
     }
@@ -17,7 +17,7 @@
       margin-bottom: 30px; /* 타이틀과 그리드 사이 간격 */
     }
     .title img {
-      width: 1000px; /* 타이틀 이미지 크기 (원하는 대로 수정 가능) */
+      width: 1500px; /* 타이틀 이미지 크기 (원하는 대로 수정 가능) */
       height: auto;
       border-radius: 10px;
     }
@@ -25,29 +25,37 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 20px; /* 이미지 사이 간격 */
+      gap: 50px; /* 이미지 사이 간격 */
     }
     .grid img {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       object-fit: cover;
       border: 2px solid #ccc;
-      border-radius: 8px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <!-- 타이틀 이미지 -->
   <div class="title">
-    <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/main/title.jpg?raw=true" alt="타이틀 이미지">
+    <img src="title.jpg" alt="타이틀 이미지">
   </div>
 
-  <!-- 2x2 이미지 그리드 -->
-  <div class="grid">
+<!-- 2x2 이미지 그리드 -->
+<div class="grid">
+  <a href="page1.html">
     <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 1">
+  </a>
+  <a href="page2.html">
     <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 2">
+  </a>
+  <a href="page3.html">
     <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 3">
+  </a>
+  <a href="page4.html">
     <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 4">
-  </div>
+  </a>
+</div>
 </body>
 </html>
