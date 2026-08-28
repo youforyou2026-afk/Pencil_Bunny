@@ -6,33 +6,53 @@
   <style>
     body {
       display: flex;
-      flex-direction: column; /* 세로 방향으로 배치 */
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 85vh;
+      min-height: 85vh;
       margin: 0;
       background-color: #f0f0f0;
     }
     .title {
-      margin-bottom: 30px; /* 타이틀과 그리드 사이 간격 */
+      margin-bottom: 30px;
+      text-align: center;
     }
     .title img {
-      width: 1500px; /* 타이틀 이미지 크기 (원하는 대로 수정 가능) */
+      width: 90%; /* PC에서는 크게, 모바일에서는 자동 줄어듦 */
+      max-width: 1500px;
       height: auto;
       border-radius: 10px;
     }
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 50px; /* 이미지 사이 간격 */
+      grid-template-rows: auto;
+      gap: 30px;
     }
     .grid img {
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 1 / 1; /* 정사각형 유지 */
       object-fit: cover;
       border: 2px solid #ccc;
       border-radius: 10px;
+    }
+
+    /* 스마트폰용 반응형 */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr; /* 한 줄에 하나씩 */
+        gap: 20px;
+      }
+      .title img {
+        width: 100%; /* 화면 너비에 맞게 */
+        max-width: 100%;
+      }
+      .grid img {
+        max-width: 90%; /* 화면에 맞게 줄임 */
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -42,20 +62,20 @@
     <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/main/title.jpg?raw=true" alt="타이틀 이미지">
   </div>
 
-<!-- 2x2 이미지 그리드 -->
-<div class="grid">
-  <a href="page1.html">
-    <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 1">
-  </a>
-  <a href="page2.html">
-    <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 2">
-  </a>
-  <a href="page3.html">
-    <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 3">
-  </a>
-  <a href="page4.html">
-    <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 4">
-  </a>
-</div>
+  <!-- 2x2 이미지 그리드 -->
+  <div class="grid">
+    <a href="page1.html">
+      <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 1">
+    </a>
+    <a href="page2.html">
+      <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 2">
+    </a>
+    <a href="page3.html">
+      <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 3">
+    </a>
+    <a href="page4.html">
+      <img src="https://github.com/youforyou2026-afk/Pencil_Bunny/blob/235d301eda7b8b9a19b0ea0117cd8c219574517b/rrr.jpg?raw=true" alt="이미지 4">
+    </a>
+  </div>
 </body>
 </html>
