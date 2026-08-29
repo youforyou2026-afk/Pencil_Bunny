@@ -11,6 +11,18 @@
     background: #f0f0f0;
   }
 
+  /* 타이틀 */
+ .title {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .title img {
+    width: 90%; /* PC에서는 크게, 모바일에서는 자동 줄어듦 */
+    max-width: 1500px;
+    height: auto;
+    border-radius: 10px;
+  }
+
   /* 갤러리 */
   .gallery {
     display: grid;
@@ -81,6 +93,11 @@
 </style>
 </head>
 <body>
+
+<!-- 타이틀 이미지 -->
+<div class="title">
+  <img src="title.jpg" alt="타이틀 이미지">
+</div>
 
 <!-- 갤러리 -->
 <div class="gallery">
