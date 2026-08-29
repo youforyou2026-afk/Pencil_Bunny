@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!-- 모바일 기기 반응형 지원을 위한 필수 메타 태그 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2x2 이미지 레이아웃</title>
+<title>3x2 이미지 레이아웃</title>
   <style>
     body {
       display: flex;
@@ -27,7 +27,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr); /* 3열로 변경 */
       grid-template-rows: auto;
       gap: 30px;
     }
@@ -41,43 +41,43 @@
       border-radius: 10px;
     }
 
-/* ==========================================
-   스마트폰 (모바일) 반응형 스타일
-   ========================================== */
-@media (max-width: 768px) {
-  body {
-    justify-content: flex-start;
-    padding: 15px;
-  }
+    /* ==========================================
+       스마트폰 (모바일) 반응형 스타일
+       ========================================== */
+    @media (max-width: 768px) {
+      body {
+        justify-content: flex-start;
+        padding: 15px;
+      }
 
-  .title {
-    margin-bottom: 20px;
-  }
+      .title {
+        margin-bottom: 20px;
+      }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr); /* 모바일에서도 2x2 유지 원할 경우 */
-    gap: 15px; /* 모바일 간격 축소 */
-  }
+      .grid {
+        grid-template-columns: repeat(3, 1fr); /* 모바일에서도 3열 유지 */
+        gap: 15px; /* 모바일 간격 축소 */
+      }
 
-  .grid img {
-    width: 100%; /* 모바일 화면 폭에 맞게 자동 조절 */
-    max-width: 160px;
-    height: 160px;
-  }
-}
+      .grid img {
+        width: 100%; /* 모바일 화면 폭에 맞게 자동 조절 */
+        max-width: 160px;
+        height: 160px;
+      }
+    }
 
-/* 화면이 매우 작은 모바일 (1열로 변경 원할 경우) */
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr; /* 화면이 작아지면 1열로 세로 배치 */
-  }
-  
-  .grid img {
-    max-width: 280px;
-    height: 280px;
-  }
-}
-</style>
+    /* 화면이 매우 작은 모바일 (1열로 변경 원할 경우) */
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr; /* 화면이 작아지면 1열로 세로 배치 */
+      }
+      
+      .grid img {
+        max-width: 280px;
+        height: 280px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -98,7 +98,13 @@
     <img src="page3.jpg" alt="이미지 3">
   </a>
   <a href="page4.html">
-    <img src="page4.jpg?raw=true" alt="이미지 4">
+    <img src="page4.jpg" alt="이미지 4">
+  </a>
+  <a href="page5.html">
+    <img src="page4.jpg" alt="이미지 5">
+  </a>
+  <a href="page6.html">
+    <img src="page4.jpg" alt="이미지 6">
   </a>
 </div>
 
