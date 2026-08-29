@@ -109,7 +109,7 @@
     background: rgba(0, 0, 0, 0.8);
   }
 
-  /* 닫기 버튼: 이미지 상단 중앙 내부 배치 */
+  /* PC 기본 닫기 버튼: 이미지 상단 중앙 내부 배치 (기존 유지) */
   .close {
     top: 15px;
     left: 50%;
@@ -134,16 +134,29 @@
   .next {
     right: 15px;
   }
+
+  /* ==========================================
+     모바일 전용 스타일 (화면 너비 768px 이하)
+     ========================================== */
+  @media (max-width: 768px) {
+    /* 모바일 닫기 버튼: 이미지를 가리지 않도록 상단 바깥으로 위치 이동 */
+    .close {
+      top: -50px; /* 이미지 영역 상단 위쪽으로 이동 */
+    }
+
+    /* 이미지와 닫기 버튼 간 여백 확보를 위한 상단 여백 설정 */
+    .popup-content {
+      margin-top: 40px;
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- 타이틀 이미지 -->
 <div class="title">
   <img src="title.jpg" alt="타이틀 이미지">
 </div>
 
-<!-- 갤러리 -->
 <div class="gallery">
   <img src="https://lh3.googleusercontent.com/d/1o9pCrJpfnC6jm2E2X8-Mu5SqpnDsOQlT" alt="이미지 1">
   <img src="https://lh3.googleusercontent.com/d/1GKnkSKGFVkUocBpYVkQToe_95fWlKHFN" alt="이미지 2">
@@ -162,14 +175,11 @@
   <img src="https://lh3.googleusercontent.com/d/1j7o86d63rmPiMbxmryY3HrdKGnG-FnoL" alt="이미지 15">
 </div>
 
-<!-- 팝업 -->
 <div class="popup" id="popup">
   <div class="popup-content">
-    <!-- 이미지 위 상단 중앙 배치 닫기 버튼 -->
     <span class="close" id="close">x</span>
-    <!-- 이미지 위 좌우 배치 이전/다음 버튼 -->
-    <span class="prev" id="prev">&#10094;</span>
-    <span class="next" id="next">&#10095;</span>
+    <span class="prev" id="prev">❮</span>
+    <span class="next" id="next">❯</span>
     <div class="img-wrapper" id="img-wrapper">
       <img id="popup-img" src="" alt="팝업 이미지">
     </div>
