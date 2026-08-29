@@ -12,23 +12,43 @@
       min-height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    iframe {
-      border: none;
+
+    /* 비디오 컨테이너 (최대 너비 제한 및 16:9 비율 유지) */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px; /* PC에서 표시될 최대 너비 (필요에 따라 조절 가능) */
+      aspect-ratio: 16 / 9; /* 16:9 화면 비율 유지 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* iframe이 컨테이너 크기에 100% 맞게 채워지도록 설정 */
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
 
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/-BeQUh_oZ8s" 
-    title="YouTube video player" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
-  </iframe>
+  <!-- iframe을 감싸는 div 컨테이너 추가 -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/-BeQUh_oZ8s" 
+      title="YouTube video player" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
 
 </body>
 </html>
