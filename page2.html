@@ -13,7 +13,7 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      background-color: #ffffff;
+      background-color: #f0f0f0;
       padding: 20px 0;
       box-sizing: border-box;
     }
@@ -44,11 +44,7 @@
       border-radius: 10px;
       overflow: hidden;
       background-color: #000;
-      margin-bottom: 30px; /* 영상 간의 간격 추가 */
-    }
-
-    .video-container:last-child {
-      margin-bottom: 0; /* 마지막 영상은 아래 여백 제거 */
+      margin-bottom: 30px; /* 영상 간 및 배너와의 간격 추가 */
     }
 
     /* iframe이 컨테이너 크기에 100% 맞게 채워지도록 설정 */
@@ -59,6 +55,30 @@
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* 하단 배너 스타일 (타이틀 이미지와 완전히 동일한 반응형 레이아웃) */
+    .banner {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner a {
+      width: 90%;
+      max-width: 1500px;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .banner img {
+      width: 100%; /* a 태그의 너비(90%, max 1500px)에 100% 맞춰짐 */
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
     }
 
     /* ==========================================
@@ -96,7 +116,7 @@
     </iframe>
   </div>
 
-  <!-- 두 번째 유튜브 영상 (추가하려는 영상의 embed URL을 넣어주세요) -->
+  <!-- 두 번째 유튜브 영상 -->
   <div class="video-container">
     <iframe 
       src="https://www.youtube.com/embed/R3ydx4ZLpiI" 
@@ -105,12 +125,13 @@
       allowfullscreen>
     </iframe>
   </div>
-  
+
+  <!-- 하단 반응형 배너 이미지 -->
   <div class="banner">
     <a href="https://forms.gle/CoXQTV4sxURE1AY78" target="_blank" rel="noopener noreferrer">
       <img src="https://lh3.googleusercontent.com/d/1WaQwG8SDXY6sT9EG67fCXG7RWHIj8eef" alt="하단 배너 이미지">
     </a>
   </div>
-  
+
 </body>
 </html>
