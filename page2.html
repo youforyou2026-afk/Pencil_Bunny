@@ -57,7 +57,7 @@
       border: none;
     }
 
-    /* 하단 배너 스타일 (타이틀 이미지와 완전히 동일한 반응형 레이아웃) */
+    /* 하단 배너 스타일 (PC: 원본 크기 유지 / 모바일: 화면에 맞춰 자동 축소) */
     .banner {
       width: 100%;
       display: flex;
@@ -66,16 +66,15 @@
     }
 
     .banner a {
-      width: 90%;
-      max-width: 1500px;
-      display: flex;
-      justify-content: center;
+      display: inline-block;
+      max-width: 90%; /* 화면 여백을 위해 전체의 90%를 넘지 않도록 설정 */
       text-decoration: none;
     }
 
     .banner img {
-      width: 100%; /* a 태그의 너비(90%, max 1500px)에 100% 맞춰짐 */
-      height: auto;
+      width: auto; /* PC에서는 이미지 본래 너비 유지 */
+      max-width: 100%; /* 화면/부모보다 커지면 자동으로 축소 */
+      height: auto; /* 비율 유지 */
       border-radius: 10px;
       cursor: pointer;
       display: block;
@@ -126,7 +125,7 @@
     </iframe>
   </div>
 
-  <!-- 하단 반응형 배너 이미지 -->
+  <!-- 하단 원본 크기 배너 이미지 -->
   <div class="banner">
     <a href="https://forms.gle/CoXQTV4sxURE1AY78" target="_blank" rel="noopener noreferrer">
       <img src="https://lh3.googleusercontent.com/d/1WaQwG8SDXY6sT9EG67fCXG7RWHIj8eef" alt="하단 배너 이미지">
