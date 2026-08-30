@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!-- 모바일 기기 반응형 지원을 위한 필수 메타 태그 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>타이틀 이미지</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+    }
+    .title {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .title img {
+      width: 90%; /* PC에서는 크게, 모바일에서는 자동 줄어듦 */
+      max-width: 1500px;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 타이틀 이미지 -->
+<div class="title">
+  <img src="title.jpg" alt="타이틀 이미지">
+</div>
+
+</body>
+</html>
