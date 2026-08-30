@@ -44,6 +44,11 @@
       border-radius: 10px;
       overflow: hidden;
       background-color: #000;
+      margin-bottom: 30px; /* 영상 간의 간격 추가 */
+    }
+
+    .video-container:last-child {
+      margin-bottom: 0; /* 마지막 영상은 아래 여백 제거 */
     }
 
     /* iframe이 컨테이너 크기에 100% 맞게 채워지도록 설정 */
@@ -67,21 +72,35 @@
       .title {
         margin-bottom: 20px;
       }
+
+      .video-container {
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 타이틀 이미지 (index.html과 동일한 구조) -->
+  <!-- 상단 타이틀 이미지 -->
   <div class="title">
     <img src="https://lh3.googleusercontent.com/d/1I8zeD77UOtS23hnMKx9zIaR1t-ASvSgL" alt="타이틀 이미지">
   </div>
 
-  <!-- 유튜브 영상 -->
+  <!-- 첫 번째 유튜브 영상 -->
   <div class="video-container">
     <iframe 
       src="https://www.youtube.com/embed/-BeQUh_oZ8s" 
-      title="YouTube video player" 
+      title="YouTube video player 1" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- 두 번째 유튜브 영상 (추가하려는 영상의 embed URL을 넣어주세요) -->
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/새로운_비디오_ID" 
+      title="YouTube video player 2" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       allowfullscreen>
     </iframe>
