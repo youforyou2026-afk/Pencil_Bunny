@@ -6,14 +6,35 @@
   <title>이미지 갤러리</title>
   <link rel="stylesheet" href="common.css">
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* 상단 고정 메뉴 높이(60px) + 여백(20px) 확보 */
+      padding-top: 80px; 
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       font-family: sans-serif;
+    }
+
+    /* 상단 메뉴 iframe 고정 스타일 */
+    .menu-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      border: none;
+      z-index: 1000;
+      background-color: transparent;
     }
 
     /* 전체 컨테이너 (3열 레이아웃) */
@@ -66,12 +87,15 @@
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
   <div class="bg-glow-3"></div>
+  
+  <!-- 상단 메뉴 프레임 -->
+  <iframe src="menu.html" class="menu-frame"></iframe>
 
   <!-- 전체 그리드 컨테이너 -->
   <div class="gallery-grid">
-    <!-- 클릭 시 location.href를 통해 해당 페이지로 직접 이동 -->
+    <!-- img 태그 src를 html 파일 대신 이미지 파일 경로로 수정 -->
     <div class="card" onclick="location.href='profile/profile_image1.html'">
-      <img src="profile/profile_image1.html" alt="이미지 1">
+      <img src="https://lh3.googleusercontent.com/d/1o9pCrJpfnC6jm2E2X8-Mu5SqpnDsOQlT" alt="이미지 1">
     </div>
     
     <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 2"></div>
