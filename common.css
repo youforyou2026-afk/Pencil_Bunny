@@ -1,0 +1,48 @@
+/* common.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #d4ccdd;
+}
+
+/* 몽환적인 빛 효과 레이어 공통 스타일 */
+.bg-glow-1 {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(254, 249, 180, 0.336) 40%, rgba(255, 245, 237, 0) 90%);
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg-glow-2 {
+    position: fixed;
+    top: 40%;
+    right: 0%;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(187, 247, 208, 0.466) 40%, rgba(255, 245, 237, 0) 90%);
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg-glow-3 {
+    position: fixed;
+    bottom: 0%;
+    left: 30%;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(170, 241, 254, 0.452) 40%, rgba(255, 245, 237, 0) 90%);
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+}

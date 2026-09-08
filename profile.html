@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 갤러리</title>
+  <link rel="stylesheet" href="common.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+      /* background: linear-gradient(135deg, #a8edd9 0%, #fed6e3 100%); */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: sans-serif;
+    }
+
+    /* 전체 컨테이너 (3열 레이아웃) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    /* 개별 반투명 패널 (카드) */
+    .card {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer; /* 클릭 가능하도록 손가락 커서 추가 */
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* ---------------------------------- */
+    /* 팝업창 (모달) 스타일 */
+    /* ---------------------------------- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* 배경 색상 제거 */
+  /* backdrop-filter: blur(4px); <- 이 줄을 삭제하거나 주석 처리 */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 800px; /* 팝업창 최대 너비 */
+      height: 80vh;     /* 팝업창 높이 */
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    /* 오른쪽 상단 X 닫기 버튼 */
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: background 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: #ffffff;
+    }
+
+    /* 외부 HTML 페이지를 불러오는 iframe */
+    .modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* 모바일 반응형 */
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .modal-content {
+        width: 95%;
+        height: 85vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <div class="bg-glow-3"></div>
+
+  <!-- 전체 그리드 컨테이너 -->
+  <div class="gallery-grid">
+    <!-- 이미지 1 클릭 시 openModal('profile_image1.html') 실행 -->
+    <div class="card" onclick="openModal('profile_image1.html')">
+      <img src="https://lh3.googleusercontent.com/d/1o9pCrJpfnC6jm2E2X8-Mu5SqpnDsOQlT" alt="이미지 1">
+    </div>
+    
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 2"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 3"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 4"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 5"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 6"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 7"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 8"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 9"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 10"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 11"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 12"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 13"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 14"></div>
+    <div class="card"><img src="https://via.placeholder.com/300" alt="이미지 15"></div>
+  </div>
+
+  <!-- 팝업창 (모달 구조) -->
+  <div id="popupModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <!-- 상단 오른쪽 X 닫기 버튼 -->
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <!-- HTML 페이지가 들어갈 iframe -->
+      <iframe id="modalFrame" src="" class="modal-iframe"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // 팝업 열기
+    function openModal(pageUrl) {
+      const modal = document.getElementById('popupModal');
+      const iframe = document.getElementById('modalFrame');
+      
+      iframe.src = pageUrl; // 전달받은 HTML 페이지 URL을 iframe에 주입
+      modal.style.display = 'flex'; // 팝업 노출
+      document.body.style.overflow = 'hidden'; // 팝업 시 바탕화면 스크롤 방지
+    }
+
+    // 팝업 닫기
+    function closeModal() {
+      const modal = document.getElementById('popupModal');
+      const iframe = document.getElementById('modalFrame');
+      
+      modal.style.display = 'none'; // 팝업 숨김
+      iframe.src = ''; // 메모리 해제 및 재생 중인 요소 중단
+      document.body.style.overflow = 'auto'; // 바탕화면 스크롤 원복
+    }
+
+    // 팝업 바깥 어두운 영역을 클릭했을 때도 닫히도록 설정
+    function closeModalOnOverlay(event) {
+      if (event.target.classList.contains('modal-overlay')) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>
