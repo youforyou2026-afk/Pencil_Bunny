@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상단 고정 프레임 구조</title>
-    <link rel="stylesheet" href="common.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <!-- 모바일 기기 반응형 설정을 위한 Viewport 태그 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상단 고정 프레임 구조</title>
+  <link rel="stylesheet" href="common.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: #d4ccdd;
-            overflow: hidden;
-            /* 중앙 정렬을 위한 Flexbox 설정 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 65vh;
-        }
+    body {
+      background-color: #d4ccdd;
+      overflow-x: hidden; /* 가로 스크롤 방지 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 60px; /* 상단 메뉴바 높이 확보 */
+    }
 
-        /* 상단 menu.html 프레임 스타일 */
-        .menu-frame {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            border: none;
-            z-index: 1000;
-        }
+    /* 상단 menu.html 프레임 스타일 */
+    .menu-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      border: none;
+      z-index: 1000;
+    }
 
-        /* 콘텐츠 화면 프레임 스타일 */
-        .content-frame {
-            width: 100%;
-            height: calc(100vh - 60px);
-            margin-top: 60px;
-            border: none;
-        }
+    /* 콘텐츠 화면 프레임 스타일 */
+    .content-frame {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
 
-        /* 중앙 이미지 스타일 (메뉴바 60px 고려) */
-        .center-title {
-            margin-top: 60px; /* 상단 메뉴 높이만큼 아래로 밀어서 진짜 중앙에 위치 */
-            max-width: none;  /* 원본 크기 유지 */
-            height: auto;
-        }
-    </style>
+    /* 반응형 이미지 스타일 */
+    .center-title {
+      max-width: 90%; /* 모바일 화면 좌우 여백 확보 */
+      height: auto;   /* 비율 유지하며 자동 축소 */
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 모바일 맞춤 미디어 쿼리 (화면 너비 768px 이하) */
+    @media (max-width: 768px) {
+      .center-title {
+        max-width: 95%; /* 모바일에서 이미지를 더 큼직하게 표시 */
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- 배경 글로우 효과 -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
 
-    <!-- 배경 글로우 효과 -->
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
-    <div class="bg-glow-3"></div>
+  <!-- 상단 메뉴 프레임 -->
+  <iframe src="menu.html" class="menu-frame"></iframe>
 
-    <!-- 상단 메뉴 프레임 -->
-    <iframe src="menu.html" class="menu-frame"></iframe>
-
-    <!-- 중앙 원본 크기 이미지 -->
-    <img src="title.png" alt="타이틀" class="center-title">
-
+  <!-- 반응형 중앙 이미지 -->
+  <img src="title.png" alt="타이틀" class="center-title">
 </body>
 </html>
