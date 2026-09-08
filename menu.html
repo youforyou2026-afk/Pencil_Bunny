@@ -86,24 +86,23 @@
 /* 모바일 반응형 처리 (화면 너비 768px 이하) */
     @media (max-width: 768px) {
       .nav-container {
-        flex-direction: column; /* 로고와 메뉴를 위아래로 배치하거나, 취향에 따라 조정 */
-        justify-content: center;
-        gap: 2px;
-        padding: 2px 8px;
+        flex-direction: row; /* 로고와 메뉴를 가로 배치 유지 */
+        justify-content: space-between;
+        gap: 8px;
+        padding: 0 10px;
       }
 
       .logo {
-        font-size: 16px;
+        font-size: 18px;
         padding: 0;
-        line-height: 1.2;
+        flex-shrink: 0; /* 로고 크기 고정 */
       }
 
       .nav-menu {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 가로 4칸 고정 */
-        gap: 2px 4px; /* 행/열 간격 축소 */
-        width: 100%;
-        padding: 0;
+        grid-template-columns: repeat(4, 1fr); /* 가로 4칸 설정 */
+        gap: 3px 4px; /* 위아래, 좌우 간격 */
+        flex-grow: 1;
       }
 
       .nav-menu li {
@@ -113,11 +112,11 @@
       }
 
       .nav-menu li a {
-        font-size: 11px; /* 2줄 배치를 위해 폰트 크기 조정 */
-        padding: 3px 2px;
+        font-size: 11px; /* 2줄 입력을 위해 글자 크기 조정 */
+        padding: 4px 2px;
         width: 100%;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 6px;
       }
     }
   </style>
