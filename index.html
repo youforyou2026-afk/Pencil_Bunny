@@ -1,112 +1,164 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<!-- 모바일 기기 반응형 지원을 위한 필수 메타 태그 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3x2 이미지 레이아웃</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 0vh;
-      margin: 0;
-      background-color: #ffffff;
-    }
-    .title {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .title img {
-      width: 90%; /* PC에서는 크게, 모바일에서는 자동 줄어듦 */
-      max-width: 1500px;
-      height: auto;
-      border-radius: 10px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3열로 변경 */
-      grid-template-rows: auto;
-      gap: 30px;
-    }
-    .grid img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      aspect-ratio: 1 / 1; /* 정사각형 유지 */
-      object-fit: cover;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상단 고정 프레임 구조</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
 
-    /* ==========================================
-       스마트폰 (모바일) 반응형 스타일
-       ========================================== */
-    @media (max-width: 768px) {
-      body {
-        justify-content: flex-start;
-        padding: 15px;
-      }
+        body {
+            background-color: #d4ccdd;
+            overflow: hidden;
+        }
 
-      .title {
-        margin-bottom: 20px;
-      }
+        .bg-glow-1 {
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(254, 249, 180, 0.336) 40%, rgba(255, 245, 237, 0) 90%);
+            filter: blur(30px);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-      .grid {
-        grid-template-columns: repeat(3, 1fr); /* 모바일에서도 3열 유지 */
-        gap: 15px; /* 모바일 간격 축소 */
-      }
+        .bg-glow-2 {
+            position: fixed;
+            top: 40%;
+            right: 0%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(187, 247, 208, 0.466) 40%, rgba(255, 245, 237, 0) 90%);
+            filter: blur(30px);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-      .grid img {
-        width: 100%; /* 모바일 화면 폭에 맞게 자동 조절 */
-        max-width: 160px;
-        height: 160px;
-      }
-    }
+        .bg-glow-3 {
+            position: fixed;
+            bottom: 0%;
+            left: 30%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(170, 241, 254, 0.452) 40%, rgba(255, 245, 237, 0) 90%);
+            filter: blur(30px);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-    /* 화면이 매우 작은 모바일 (1열로 변경 원할 경우) */
-    @media (max-width: 480px) {
-      .grid {
-        grid-template-columns: 1fr; /* 화면이 작아지면 1열로 세로 배치 */
-      }
-      
-      .grid img {
-        max-width: 280px;
-        height: 280px;
-      }
-    }
-  </style>
+        /* 고정 상단 헤더 */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(225, 220, 231, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        /* ✨ 검정 외곽선이 적용된 연필토끼 로고 스타일 */
+        .logo {
+            font-size: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            padding: 4px 8px;
+            
+            /* 그라데이션 텍스트 설정 */
+            background: linear-gradient(135deg, #1e9fe9, #2762b0, #b33ab7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+        }
+
+        /* 로고 마우스 오버 시 효과 */
+        .logo:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
+        }
+
+        /* 일반 메뉴 스타일 */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #5a5266;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: #111111;
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        /* 메뉴 아래에 들어가는 실제 페이지 표시 영역 */
+        .content-frame {
+            width: 100%;
+            height: calc(100vh - 60px);
+            margin-top: 60px;
+            border: none;
+        }
+    </style>
 </head>
 <body>
 
-<!-- 타이틀 이미지 -->
-<div class="title">
-  <img src="https://lh3.googleusercontent.com/d/1ATsQcHm4QgaUhBO02cK2IZbmhwosdWAr" alt="타이틀 이미지">
-</div>
+    <!-- 몽환적인 빛(Glow) 레이어들 -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <div class="bg-glow-3"></div>
 
-<!-- 이미지 그리드 -->
-<div class="grid">
-  <a href="page1.html">
-    <img src="https://lh3.googleusercontent.com/d/1Sg7tzqsaeQwv1jNahNlwAx8PoBuipbDN" alt="이미지 1">
-  </a>
-  <a href="page2.html">
-    <img src="https://lh3.googleusercontent.com/d/1IPpc4qTxbWvBuXHESvAKiYbKQPDOHnPj" alt="이미지 2">
-  </a>
-  <a href="page3.html">
-    <img src="https://lh3.googleusercontent.com/d/1gckcgUsVHFeeuAKbuQOSIh1oIpKS7sa5" alt="이미지 3">
-  </a>
-  <a href="page4.html">
-    <img src="https://lh3.googleusercontent.com/d/1BUjOuHjaVridhRGKzlvOkAhnZNMGuLWK" alt="이미지 4">
-  </a>
-  <a href="page5.html">
-    <img src="https://lh3.googleusercontent.com/d/1aRR58A6YdVhkWA9T96naQUf6YEsQZDxe" alt="이미지 5">
-  </a>
-  <a href="page6.html">
-    <img src="https://lh3.googleusercontent.com/d/1AL8o3xAQzhH8hpsR8OFbqtQd0E4fsuwy" alt="이미지 6">
-  </a>
-</div>
+    <!-- 고정 상단 메뉴 -->
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <!-- 이모지 제거 및 검정 아웃라인 적용 로고 -->
+            <a href="main.html" target="main-content" class="logo">연필토끼</a>
+
+            <!-- 메뉴 목록 -->
+            <ul class="nav-menu">
+                <li><a href="profile.html" target="main-content">프사</a></li>
+                <li><a href="bg-vertical.html" target="main-content">세로 배경</a></li>
+                <li><a href="bg-horizontal.html" target="main-content">가로 배경</a></li>
+                <li><a href="stream.html" target="main-content">개인방송</a></li>
+                <li><a href="motion.html" target="main-content">모션그래픽</a></li>
+                <li><a href="effects.html" target="main-content">이펙트</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 외부 웹페이지들이 로드되어 보여질 프레임 영역 -->
+    <iframe name="main-content" src="main.html" class="content-frame"></iframe>
 
 </body>
 </html>
