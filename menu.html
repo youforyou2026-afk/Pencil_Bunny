@@ -1,100 +1,136 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상단 메뉴</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상단 메뉴</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
-        body {
-            background-color: transparent;
-            overflow: hidden;
-        }
+    body {
+      background-color: transparent;
+      overflow: hidden;
+    }
 
-        .sticky-header {
-            width: 100%;
-            height: 60px;
-            background-color: rgba(225, 220, 231, 0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-        }
+    .sticky-header {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(225, 220, 231, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            height: 100%;
-            padding: 0 20px;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      height: 100%;
+      padding: 0 16px;
+    }
 
-        .logo {
-            font-size: 30px;
-            font-weight: 500;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            padding: 4px 8px;
-            background: linear-gradient(135deg, #1e9fe9, #2762b0, #b33ab7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
+    .logo {
+      font-size: 26px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      padding: 4px 8px;
+      background: linear-gradient(135deg, #1e9fe9, #2762b0, #b33ab7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      white-space: nowrap;
+    }
 
-        .logo:hover {
-            transform: scale(1.06);
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
-        }
+    .logo:hover {
+      transform: scale(1.06);
+      filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
+    }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 16px;
-            align-items: center;
-        }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 12px;
+      align-items: center;
+    }
 
-        .nav-menu li a {
-            text-decoration: none;
-            color: #5a5266;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 18px;
-            transition: all 0.2s ease;
-        }
+    .nav-menu li {
+      flex-shrink: 0;
+    }
 
-        .nav-menu li a:hover {
-            color: #111111;
-            background-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-        }
-    </style>
+    .nav-menu li a {
+      text-decoration: none;
+      color: #5a5266;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 18px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-menu li a:hover {
+      color: #111111;
+      background-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    /* 모바일 반응형 처리 (화면 너비 768px 이하) */
+    @media (max-width: 768px) {
+      .nav-container {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 0 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav-menu {
+        overflow-x: auto; /* 메뉴가 많을 경우 모바일에서 가로 스크롤 허용 */
+        white-space: nowrap;
+        gap: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* 모바일용 스크롤바 숨기기 */
+      .nav-menu::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-menu {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .nav-menu li a {
+        font-size: 13px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-    <header class="sticky-header">
-        <nav class="nav-container">
-            <!-- target을 parent.frames의 name인 main-content로 지정 또는 _parent 설정 -->
-            <a href="index.html" target="main-content" class="logo">연필토끼</a>
-
-            <ul class="nav-menu">
-                <li><a href="profile.html" target="main-content">프사</a></li>
-                <li><a href="bg-vertical.html" target="main-content">세로 배경</a></li>
-                <li><a href="bg-horizontal.html" target="main-content">가로 배경</a></li>
-                <li><a href="stream.html" target="main-content">개인방송</a></li>
-                <li><a href="motion.html" target="main-content">모션그래픽</a></li>
-                <li><a href="effects.html" target="main-content">이펙트</a></li>
-            </ul>
-        </nav>
-    </header>
-
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <a href="index.html" target="main-content" class="logo">연필토끼</a>
+      <ul class="nav-menu">
+        <li><a href="profile.html" target="main-content">프사</a></li>
+        <li><a href="bg-vertical.html" target="main-content">세로 배경</a></li>
+        <li><a href="bg-horizontal.html" target="main-content">가로 배경</a></li>
+        <li><a href="stream.html" target="main-content">개인방송</a></li>
+        <li><a href="motion.html" target="main-content">모션그래픽</a></li>
+        <li><a href="effects.html" target="main-content">이펙트</a></li>
+      </ul>
+    </nav>
+  </header>
 </body>
 </html>
