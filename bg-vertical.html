@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>연필토끼</title>
-
   <link rel="stylesheet" href="common.css">
 
   <style>
-    /* =========================
-       기본 설정
-    ========================= */
-
     * {
       margin: 0;
       padding: 0;
@@ -20,184 +14,91 @@
     }
 
     body {
-      padding-top: 80px;
-      padding-bottom: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
-
+      padding: 80px 20px 40px;
       min-height: 100vh;
-
       display: flex;
       justify-content: center;
       align-items: flex-start;
-
       font-family: sans-serif;
     }
 
-
-    /* =========================
-       상단 메뉴
-    ========================= */
-
     .menu-frame {
       position: fixed;
-
       top: 0;
       left: 0;
-
       width: 100%;
       height: 60px;
-
       border: none;
-
       z-index: 1000;
-
       background-color: transparent;
     }
 
-
-    /* =========================
-       갤러리 전체
-    ========================= */
-
     .gallery-grid {
       display: grid;
-
       grid-template-columns: repeat(3, 1fr);
-
       gap: 20px;
-
       max-width: 900px;
-
       width: 100%;
     }
-
-
-    /* =========================
-       카드
-    ========================= */
 
     .card {
       position: relative;
-
       width: 100%;
-
-      background-color: rgba(255, 255, 255, 0.4);
-
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-
-      border-radius: 16px;
-
       padding: 12px;
-
-      box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.08);
-
-      border: 1px solid rgba(255, 255, 255, 0.4);
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       overflow: hidden;
-
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
-
-    /* =========================
-       카드 마우스 효과
-    ========================= */
 
     .card:hover {
       transform: translateY(-4px);
-
-      box-shadow:
-        0 12px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     }
 
-
-    /* =========================
-       일반 이미지
-    ========================= */
-
-    .card img {
-      display: block;
-
-      width: 100%;
-
-      aspect-ratio: 9 / 16;
-
-      object-fit: cover;
-
-      border-radius: 10px;
-    }
-
-
-    /* =========================
-       MP4 영상
-    ========================= */
-
+    .card img,
     .card-video {
       display: block;
-
       width: 100%;
-
       aspect-ratio: 9 / 16;
-
       object-fit: cover;
-
       border-radius: 10px;
-
-      background-color: #eeeeee;
     }
 
-
-    /* =========================
-       모바일
-    ========================= */
+    .card-video {
+      background-color: #eee;
+    }
 
     @media (max-width: 600px) {
-
       body {
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 75px;
+        padding: 75px 10px 40px;
       }
 
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-
         gap: 10px;
       }
 
       .card {
         padding: 8px;
-
         border-radius: 12px;
       }
 
+      .card img,
       .card-video {
-        border-radius: 8px;
-      }
-
-      .card img {
         border-radius: 8px;
       }
     }
 
-
-    /* =========================
-       아주 작은 스마트폰
-    ========================= */
-
     @media (max-width: 380px) {
-
       .gallery-grid {
         gap: 8px;
       }
@@ -206,25 +107,13 @@
         padding: 6px;
       }
     }
-
   </style>
 </head>
 
-
 <body>
-
-  <!-- =====================================
-       배경 효과
-  ====================================== -->
-
   <div class="bg-glow-1"></div>
   <div class="bg-glow-2"></div>
   <div class="bg-glow-3"></div>
-
-
-  <!-- =====================================
-       상단 메뉴
-  ====================================== -->
 
   <iframe
     src="menu.html"
@@ -232,17 +121,7 @@
     title="상단 메뉴">
   </iframe>
 
-
-  <!-- =====================================
-       전체 갤러리
-  ====================================== -->
-
   <div class="gallery-grid">
-
-
-    <!-- ===================================
-         카드 1 - MP4 영상
-    ==================================== -->
 
     <div
       class="card"
@@ -250,258 +129,85 @@
 
       <video
         class="card-video"
-
         autoplay
         muted
         loop
         playsinline
-
         preload="auto"
-
         poster="https://lh3.googleusercontent.com/d/1XkfsUYjfByxeGMRvFTKi9OS0mCz8CvK2">
 
         <source
           src="https://drive.google.com/uc?export=download&id=1_Eyh3nkZXQN1fUj4Aesc4ztJIfTwmhXL"
           type="video/mp4">
 
-        브라우저에서 동영상을 재생할 수 없습니다.
-
       </video>
-
     </div>
-
-
-    <!-- ===================================
-         카드 2
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 2">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 2">
     </div>
-
-
-    <!-- ===================================
-         카드 3
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 3">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 3">
     </div>
-
-
-    <!-- ===================================
-         카드 4
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 4">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 4">
     </div>
-
-
-    <!-- ===================================
-         카드 5
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 5">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 5">
     </div>
-
-
-    <!-- ===================================
-         카드 6
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 6">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 6">
     </div>
-
-
-    <!-- ===================================
-         카드 7
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 7">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 7">
     </div>
-
-
-    <!-- ===================================
-         카드 8
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 8">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 8">
     </div>
-
-
-    <!-- ===================================
-         카드 9
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 9">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 9">
     </div>
-
-
-    <!-- ===================================
-         카드 10
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 10">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 10">
     </div>
-
-
-    <!-- ===================================
-         카드 11
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 11">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 11">
     </div>
-
-
-    <!-- ===================================
-         카드 12
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 12">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 12">
     </div>
-
-
-    <!-- ===================================
-         카드 13
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 13">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 13">
     </div>
-
-
-    <!-- ===================================
-         카드 14
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 14">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 14">
     </div>
-
-
-    <!-- ===================================
-         카드 15
-    ==================================== -->
 
     <div class="card">
-
-      <img
-        src="https://via.placeholder.com/300x533"
-        alt="이미지 15">
-
+      <img src="https://via.placeholder.com/300x533" alt="이미지 15">
     </div>
-
 
   </div>
 
-
-  <!-- =====================================
-       영상 자동재생 보조 스크립트
-  ====================================== -->
-
   <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const videos = document.querySelectorAll("video");
-
-      videos.forEach(function (video) {
-
-        /*
-         * 모바일 브라우저에서
-         * 자동재생을 허용받기 위한 설정
-         */
-
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("video").forEach(video => {
         video.muted = true;
-        video.setAttribute("muted", "");
-        video.setAttribute("playsinline", "");
-
-        /*
-         * 영상 재생 시도
-         */
-
-        const playPromise = video.play();
-
-        if (playPromise !== undefined) {
-
-          playPromise.catch(function (error) {
-
-            console.log(
-              "자동재생이 차단되었습니다:",
-              error
-            );
-
-          });
-
-        }
-
+        video.play().catch(() => {});
       });
-
     });
-
   </script>
-
-
 </body>
 </html>
