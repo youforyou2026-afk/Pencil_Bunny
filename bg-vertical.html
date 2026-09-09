@@ -2,90 +2,106 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <!-- 모바일 기기 반응형 지원을 위한 필수 메타 태그 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>유튜브 비디오 페이지</title>
+  <title>이미지 갤러리</title>
+  <link rel="stylesheet" href="common.css">
   <style>
-    body {
-      display: flex;
-      flex-direction: column; /* 위에서 아래로 배치 */
-      justify-content: flex-start;
-      align-items: center;
-      min-height: 100vh;
+    * {
       margin: 0;
-      background-color: #f0f0f0;
-      padding: 20px 0;
+      padding: 0;
       box-sizing: border-box;
     }
-
-    /* index.html 기준 타이틀 이미지 스타일 */
-    .title {
-      margin-bottom: 30px;
-      text-align: center;
-      width: 100%;
+    body {
+      /* 상단 고정 메뉴 높이(60px) + 여백(20px) 확보 */
+      padding-top: 80px;
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
+      font-family: sans-serif;
     }
-
-    .title img {
-      width: 90%; /* PC에서는 화면 비율에 맞게 크고, 모바일에서는 자동 조정 */
-      max-width: 1500px;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    /* 비디오 컨테이너 (최대 너비 제한 및 16:9 비율 유지) */
-    .video-container {
-      position: relative;
-      width: 90%;
-      max-width: 1500px; /* 타이틀 이미지의 최대 너비와 일치 */
-      aspect-ratio: 16 / 9; /* 16:9 화면 비율 유지 */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    /* iframe이 컨테이너 크기에 100% 맞게 채워지도록 설정 */
-    .video-container iframe {
-      position: absolute;
+    /* 상단 메뉴 iframe 고정 스타일 */
+    .menu-frame {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 60px;
       border: none;
+      z-index: 1000;
+      background-color: transparent;
     }
-
-    /* ==========================================
-       스마트폰 (모바일) 반응형 스타일
-       ========================================== */
-    @media (max-width: 768px) {
-      body {
-        padding: 15px 0;
-      }
-
-      .title {
-        margin-bottom: 20px;
+    /* 전체 컨테이너 (3열 레이아웃) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+    /* 개별 반투명 패널 (카드) */
+    .card {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 9 / 16; /* 9:16 비율 적용 */
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    /* 모바일 반응형 */
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   </style>
 </head>
 <body>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
 
-  <!-- 상단 타이틀 이미지 (index.html과 동일한 구조) -->
-  <div class="title">
-    <img src="title.jpg" alt="타이틀 이미지">
+  <!-- 상단 메뉴 프레임 -->
+  <iframe src="menu.html" class="menu-frame"></iframe>
+
+  <!-- 전체 그리드 컨테이너 -->
+  <div class="gallery-grid">
+    <div class="card" onclick="location.href='profile/profile_image1.html'">
+      <img src="https://lh3.googleusercontent.com/d/1o9pCrJpfnC6jm2E2X8-Mu5SqpnDsOQlT" alt="이미지 1">
+    </div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 2"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 3"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 4"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 5"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 6"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 7"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 8"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 9"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 10"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 11"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 12"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 13"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 14"></div>
+    <div class="card"><img src="https://via.placeholder.com/300x533" alt="이미지 15"></div>
   </div>
-
-  <!-- 유튜브 영상 -->
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/-BeQUh_oZ8s" 
-      title="YouTube video player" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe>
-  </div>
-
 </body>
 </html>
