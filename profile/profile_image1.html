@@ -7,28 +7,29 @@
   <link rel="stylesheet" href="../common.css">
   <style>
 
-/* S-Core Dream 웹폰트 불러오기 (style 태그 맨 위에 추가) */
-@import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff');
+  /* 기본 시스템 폰트 설정 (외부 다운로드 없음) */
+  body, .content-item h2, .content-item h1 a {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard Variable", "Pretendard", "Malgun Gothic", "맑은 고딕", sans-serif;
+  }
 
-/* 텍스트 및 링크 스타일 지정 */
-.content-item h2 {
-  font-family: 'S-CoreDream-3Light', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.6; /* 줄간격 조절 */
-}
+  /* 설명글 (h2) 스타일 */
+  .content-item h2 {
+    font-size: 1.05rem;
+    font-weight: 400;      /* 기본 두께로 부드럽게 표시 */
+    color: #333;
+    line-height: 1.6;      /* 줄간격을 넓혀 가독성 향상 */
+    letter-spacing: -0.3px; /* 자간을 살짝 좁혀 정돈된 느낌 제공 */
+  }
 
-/* 다운로드 링크 스타일 */
-.content-item h1 a {
-  font-family: 'S-CoreDream-3Light', sans-serif;
-  font-size: 1.3rem;
-  color: #5d4a75; /* 패널 색상과 어울리는 딥 퍼플 */
-  text-decoration: none;
-  font-weight: 700;
-  border-bottom: 2px solid #5d4a75; /* 하단 언더라인 디자인 */
-  padding-bottom: 4px;
-}
+  /* 다운로드 링크 (h1 a) 스타일 */
+  .content-item h1 a {
+    font-size: 1.25rem;
+    font-weight: 700;      /* 강조 두께 */
+    color: #5d4a75;        /* 패널과 어울리는 딥 퍼플 */
+    text-decoration: none;
+    border-bottom: 2px solid #5d4a75; /* 깔끔한 밑줄 디자인 */
+    padding-bottom: 3px;
+  }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
