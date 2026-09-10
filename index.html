@@ -61,7 +61,24 @@
       flex-direction: column;
       align-items: center;
     }
-    
+    /* 반투명 서브 카드 스타일 */
+.sub-card {
+  background: rgba(255, 255, 255, 0.25); /* 기본 패널보다 살짝 밝은 반투명 */
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.sub-card h2 {
+  margin-bottom: 8px;
+}
+
+.sub-card h2:last-child {
+  margin-bottom: 0;
+}
     /* 각 요소 사이의 간격 설정 */
     .content-item { margin-bottom: 20px; }
     
@@ -93,12 +110,14 @@
     <div class="content-item">
       <h1 style="margin-bottom: 10px;">AI creator 연필토끼의 커미션 페이지 입니다.</h1>
       <h2 style="margin-bottom: 30px;">상단메뉴는 무료로 다운로드하여 사용 할 수 있는 소스/작업물 입니다</h2> 
+      <div class="sub-card">
       <h2 style="margin-bottom: 10px;">(세로형) 스마트폰 영상배경화면 720 x 1280(HD)으로 제작되며 2만원 입니다.</h2>
       <h2 style="margin-bottom: 20px;">1440 x 2560(QHD)으로 업스케일을 원하실경우 1만원 추가 입니다.</h2>
-      <h2>---------------------------------------------</h2>
+      </div>
+     <div class="sub-card">
         <h2 style="margin-bottom: 10px;">(가로형) PC 영상배경화면 1920 x 1080(FHD)으로 제작되며 3만원 입니다.</h2>
         <h2 style="margin-bottom: 20px;">3840 2160(4K)으로 업스케일을 원하실경우 1만원 추가 입니다.</h2>
-      <h2>---------------------------------------------</h2>
+     </div>
       
       <h2 style="margin-bottom: 10px;"> 작업은 1일 입니다.</h2>
             <h2 style="margin-bottom: 10px;"> 결제는 "카카오페이"로 받습니다.</h2>
