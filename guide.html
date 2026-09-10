@@ -12,11 +12,11 @@
             --sub-text: #495057;
             --primary-color: #3b82f6;
             --accent-color: #10b981;
+            --warning-color: #f59e0b;
             --border-color: #e9ecef;
         }
 
         body {
-         
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -25,7 +25,7 @@
             padding: 20px;
         }
 
-        /* 상단 메뉴 iframe 고정 스타일 */
+               /* 상단 메뉴 iframe 고정 스타일 */
     .menu-frame {
       position: fixed;
       top: 0;
@@ -36,7 +36,7 @@
       z-index: 1000;
       background-color: transparent;
     }
-        
+
         .container {
             max-width: 680px;
             margin: 0 auto;
@@ -114,6 +114,16 @@
             margin-top: 16px;
         }
 
+        .notice-box {
+            background-color: #fffbe8;
+            border-left: 4px solid var(--warning-color);
+            padding: 12px 16px;
+            font-size: 0.88rem;
+            color: #713f12;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 16px;
+        }
+
         footer {
             text-align: center;
             font-size: 0.85rem;
@@ -126,7 +136,7 @@
 
   <!-- 상단 메뉴 프레임 -->
   <iframe src="menu.html" class="menu-frame"></iframe>
-    
+
 <div class="container">
     <header>
         <h1>스마트폰 MP4 동영상 배경화면 설정 가이드</h1>
@@ -146,22 +156,36 @@
             <li>영상 길이가 길 경우 <strong>가위 아이콘(편집)</strong>을 눌러 15초 이내로 자른 뒤 <strong>완료</strong>를 누릅니다.</li>
             <li><strong>설정</strong>을 눌러 적용을 마칩니다.</li>
         </ol>
+        <div class="tip-box">
+            📌 <strong>참고:</strong> 만약, 안드로이드 잠금화면</strong>만 되고, 홈 화면이 동영상으로 설정이 안된다면, Google Play 스토어에서 <code>Video Live Wallpaper</code> 같은 외부 앱을 활용해 보세요.
+        </div>
     </div>
 
     <!-- 아이폰 섹션 -->
     <div class="card">
         <div class="card-title">
-            아이폰 <span class="badge badge-ios">iOS 17 이상</span>
+            아이폰 <span class="badge badge-ios">iOS / iPhone</span>
         </div>
-        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0;">iOS 구조상 MP4 영상을 <strong>라이브 포토(Live Photo)로 변환</strong>하는 과정이 필요합니다.</p>
+        
+        <div class="notice-box">
+            ⚠️ <strong>아이폰 설정 전 필독!</strong><br>
+            • <strong>최신 소프트웨어(iOS 17 이상) 업데이트 권장:</strong> 이전 버전(iOS 16)에서는 Apple 정책상 움직이는 배경화면이 지원되지 않았으나, 최신 버전에서 다시 가능해졌습니다.<br>
+            • 아이폰은 MP4 파일을 직접 배경화면으로 쓸 수 없어 **'라이브 포토'로 변환**해야 합니다.
+        </div>
+
         <ol>
             <li>App Store에서 <strong>intoLive</strong> 또는 <strong>VideoToLive</strong> 무료 변환 앱을 설치합니다.</li>
             <li>앱을 실행하여 원하는 <strong>MP4 영상을 불러온 뒤 라이브 포토로 변환/저장</strong>합니다.</li>
             <li>아이폰 <strong>설정 > 배경화면 > 새 배경화면 추가</strong>로 이동합니다.</li>
-            <li>상단 항목 중 <strong>사진</strong>을 선택한 후 <strong>라이브 포토</strong> 탭에서 변환한 사진을 선택합니다.</li>
-            <li>좌측 하단의 <strong>라이브 포토 재생 버튼</strong>이 활성화되어 있는지 확인합니다.</li>
-            <li>우측 상단의 <strong>추가</strong>를 눌러 <strong>잠금화면 한 쌍으로 설정</strong>을 선택합니다.</li>
+            <li>상단 메뉴 중 <strong>사진</strong>을 선택한 후 <strong>라이브 포토</strong> 탭에서 변환한 사진을 선택합니다.</li>
+            <li>좌측 하단의 <strong>라이브 포토 재생 버튼(움직이는 아이콘)</strong>을 눌러 활성화합니다.</li>
+            <li>우측 상단의 <strong>추가</strong>를 눌러 완료합니다.</li>
         </ol>
+        
+        <div class="tip-box">
+            📌 <strong>잠금화면에서 안 움직이나요?</strong><br>
+            잠금화면 상태에서 **화면을 길게 터치**하고 있거나, **소프트웨어가 최신 상태(iOS 17 이상)로 업데이트**되어 있는지 확인해 주세요.
+        </div>
     </div>
 
     <footer>
