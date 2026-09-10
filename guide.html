@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 동영상 배경화면 설정 가이드</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --sub-text: #495057;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            word-break: keep-all;
+        }
+
+        p.subtitle {
+            color: #6c757d;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #fff;
+            margin-left: 8px;
+        }
+
+        .badge-android { background-color: var(--accent-color); }
+        .badge-ios { background-color: var(--primary-color); }
+
+        ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--sub-text);
+        }
+
+        li::marker {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .tip-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            color: #334155;
+            border-radius: 0 8px 8px 0;
+            margin-top: 16px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #adb5bd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>스마트폰 MP4 동영상 배경화면 설정 가이드</h1>
+        <p class="subtitle">안드로이드 및 아이폰 라이브 배경화면 적용 방법</p>
+    </header>
+
+    <!-- 안드로이드 섹션 -->
+    <div class="card">
+        <div class="card-title">
+            안드로이드 <span class="badge badge-android">Galaxy 기준</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0;">별도의 앱 설치 없이 기본 갤러리 앱에서 바로 설정 가능합니다.</p>
+        <ol>
+            <li><strong>갤러리 앱</strong>을 열고 배경화면으로 사용할 MP4 영상을 선택합니다.</li>
+            <li>우측 하단의 <strong>더보기(점 3개) 메뉴</strong>를 누릅니다.</li>
+            <li><strong>배경화면으로 지정</strong>을 선택한 뒤 <strong>잠금화면</strong>을 선택합니다.</li>
+            <li>영상 길이가 길 경우 <strong>가위 아이콘(편집)</strong>을 눌러 15초 이내로 자른 뒤 <strong>완료</strong>를 누릅니다.</li>
+            <li><strong>설정</strong>을 눌러 적용을 마칩니다.</li>
+        </ol>
+        <div class="tip-box">
+            📌 <strong>참고:</strong> 안드로이드 기본 기능은 주로 <strong>잠금화면</strong>만 지원합니다. 홈 화면까지 동영상으로 설정하고 싶다면 Google Play 스토어에서 <code>Video Live Wallpaper</code> 같은 외부 앱을 활용해 보세요.
+        </div>
+    </div>
+
+    <!-- 아이폰 섹션 -->
+    <div class="card">
+        <div class="card-title">
+            아이폰 <span class="badge badge-ios">iOS 17 이상</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0;">iOS 구조상 MP4 영상을 <strong>라이브 포토(Live Photo)로 변환</strong>하는 과정이 필요합니다.</p>
+        <ol>
+            <li>App Store에서 <strong>intoLive</strong> 또는 <strong>VideoToLive</strong> 무료 변환 앱을 설치합니다.</li>
+            <li>앱을 실행하여 원하는 <strong>MP4 영상을 불러온 뒤 라이브 포토로 변환/저장</strong>합니다.</li>
+            <li>아이폰 <strong>설정 > 배경화면 > 새 배경화면 추가</strong>로 이동합니다.</li>
+            <li>상단 항목 중 <strong>사진</strong>을 선택한 후 <strong>라이브 포토</strong> 탭에서 변환한 사진을 선택합니다.</li>
+            <li>좌측 하단의 <strong>라이브 포토 재생 버튼</strong>이 활성화되어 있는지 확인합니다.</li>
+            <li>우측 상단의 <strong>추가</strong>를 눌러 <strong>잠금화면 한 쌍으로 설정</strong>을 선택합니다.</li>
+        </ol>
+    </div>
+
+    <footer>
+        <p>© 스마트폰 배경화면 설정 가이드</p>
+    </footer>
+</div>
+
+</body>
+</html>
